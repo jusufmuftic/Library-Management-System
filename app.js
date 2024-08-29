@@ -41,6 +41,18 @@ app.get('/books', (req, res) => {
   })
 })
 
+app.delete('/books/:id', (req, res) => {
+  const id = req.params.id;
+  
+  Book.findByIdAndDelete(id)
+    .then(result => {
+      res.json({ redirect: '/books' });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 app.post('/books', (req, res) => {
   const book = new Book(req.body)
 
