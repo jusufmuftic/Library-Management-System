@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const Book = require('./models/book')
-
+const dotenv= require('dotenv')
+dotenv.config()
 const app = express();
-
-const dbURI = 'mongodb+srv://jusufmuftic:W7IqsHsi6pkJq7Bj@cluster0.pr2th.mongodb.net/';
+const dbURI = process.env.MONGODB_URI;
 
 mongoose.connect(dbURI)
 .then((result) => app.listen(3000))
