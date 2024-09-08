@@ -54,11 +54,14 @@ app.delete('/books/:id', (req, res) => {
 });
 
 app.post('/books', (req, res) => {
+  //validation
+
   const book = new Book(req.body)
 
   book.save()
   .then((result) => {
-    res.redirect('/books')
+    // res.redirect('/books')
+    res.json({success:'ok'})
   })
   .catch((err) => {
     console.log(err)

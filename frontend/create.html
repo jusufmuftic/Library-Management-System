@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+
+    <nav>
+        <div class="site-title">
+          <a href="/"><h1>Library</h1></a>
+          <p>Library Menagement System</p>
+        </div>
+        <ul>
+          <li><a href="/">Books</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/books/create">New Book</a></li>
+        </ul>
+      </nav>
+
+    <div class="create-book content">
+      <form action="/books" method="post">
+        <label for="title">Book title:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="author">Book Author:</label>
+        <input type="text" id="author" name="author" required>
+        <label for="description">Book description:</label>
+        <textarea type="text" id="description" name="description" required></textarea>
+        <label for="PDF">PDF:</label>
+        <input type="file" id="PDF" name="file" required>
+        <button>Submit</button>
+      </form>
+    </div>
+  
+    <footer>
+        Copyright &copy; Jusuf Muftić 2024
+      </footer>
+    
+</body>
+</html>
