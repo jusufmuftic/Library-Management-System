@@ -5,15 +5,21 @@ const dotenv= require('dotenv')
 dotenv.config()
 const app = express();
 const dbURI = process.env.MONGODB_URI;
+// cors
+const cors=require("cors");
 
 mongoose.connect(dbURI)
-.then((result) => app.listen(3000))
+.then((result) => {
+  console.log("Connect to DB")
+  app.listen(3000)
+})
 .catch((err) => console.log(err))
 
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(express.urlencoded())
+app.use(cors())
 
 // app.use((req, res, next) => {
 //   console.log('new request made:');
@@ -23,23 +29,22 @@ app.use(express.urlencoded())
 //   next();
 // });
 
-app.get('/', (req, res) => {
-  res.redirect('/books')
-});
+// app.get('/', (req, res) => {
+//   res.redirect('/books')
+// });
 
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
 });
 
-app.get('/books', (req, res) => {
-  Book.find().sort({createdAt: -1})
-  .then((result) => {
-    res.render('index', {title : 'All Books', books: result})
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+app.get('/books', async (req, res) => {
+  const knjige = await Book.find();
+  res.json(knjige)
 })
+
+
+async function tarik(){
+}
 
 app.delete('/books/:id', (req, res) => {
   const id = req.params.id;
