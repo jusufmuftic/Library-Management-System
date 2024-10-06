@@ -64,6 +64,9 @@
     .books a:hover h3{
       color: crimson;
     }
+    .book{
+      margin-bottom: 100px;
+    }
     .details{
       position: relative;
     }

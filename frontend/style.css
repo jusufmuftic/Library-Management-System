@@ -64,6 +64,15 @@
     .books a:hover h3{
       color: crimson;
     }
+    .book{
+      display: flex;
+      justify-content: space-between;
+      width: 500px;
+      margin-bottom: 20px;
+    }
+    .delBtn{
+      padding: 5px 10px;
+    }
     .details{
       position: relative;
     }

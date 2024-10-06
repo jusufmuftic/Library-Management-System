@@ -10,7 +10,7 @@ const cors=require("cors");
 
 mongoose.connect(dbURI)
 .then((result) => {
-  console.log("Connect to DB")
+  console.log("Connected to DB")
   app.listen(3000)
 })
 .catch((err) => console.log(err))
