@@ -55,6 +55,13 @@
     }
 
     /* index styles */
+    #all-books{
+      position: relative;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+    }
     .books a{
       display: block;
       margin: 40px 0;
@@ -72,6 +79,51 @@
     }
     .delBtn{
       padding: 5px 10px;
+      background-color: transparent;
+      color: red;
+      border: 0;
+      cursor: pointer;
+    }
+    .editBtn{
+      padding: 5px 10px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    #pop-up{
+      background-color: white;
+      height: 250px;
+      width: 350px;
+      position: absolute;
+      display: grid;
+      gap: 15px;
+      align-content: center;
+      justify-content: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      border: 2px solid black;
+      border-radius: 30px;
+      display: none;
+    }
+    .title_input{
+      height: 30px;
+      width: 250px;
+      font-size: 18px;
+    }
+    .author_input{
+      height: 30px;
+      width: 250px;
+      font-size: 18px;
+    }
+    #pop-up a{
+      position: absolute;
+      top: 10%;
+      left: 87.5%
+    }
+    .save_popup{
+      height: 30px;
+      letter-spacing: 1px;
     }
     .details{
       position: relative;

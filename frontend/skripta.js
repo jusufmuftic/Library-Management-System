@@ -1,6 +1,11 @@
+const editBtn = document.createElement('button')
+        editBtn.classList.add('editBtn')
+        editBtn.innerHTML = 'EDIT'
+
+        
 
 async function getData() {
- const res= await fetch('http://localhost:3000/books')
+ const res = await fetch('http://localhost:3000/books')
  const knjige = await res.json();    
  console.log(knjige)
 
@@ -23,17 +28,41 @@ async function getData() {
         delBtn.classList.add('delBtn')
         delBtn.innerHTML = 'DELETE'
 
+        const editBtn = document.createElement('button')
+        editBtn.classList.add('editBtn')
+        editBtn.innerHTML = 'EDIT'
+
+        const x = document.querySelector('#x')
+        const popup = document.querySelector('#pop-up')
+        const body = document.querySelector('body')
+        const title_insert = document.querySelector('.title_input')
+        const author_insert = document.querySelector('.author_input')        
+
+        x.addEventListener('click', () => {
+            popup.style.display = 'none'
+            body.style.backgroundColor = 'white'
+        })
+
+        editBtn.addEventListener('click', () => {
+            popup.style.display = 'grid'
+            body.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'
+            title_insert.value = `${knjiga.title}`
+            author_insert.value = `${knjiga.author}`
+        })
+
+
         const allBooks = document.getElementById('all-books')
         allBooks.appendChild(container)
         container.appendChild(leftCont)
         container.appendChild(rightCont)
         leftCont.appendChild(title)
         leftCont.appendChild(author)
+        rightCont.appendChild(editBtn)
         rightCont.appendChild(delBtn)
     }
 }
 
-getData()
+
 
 async function delData() {
     const res = await fetch('http://localhost:3000/books');
@@ -85,8 +114,11 @@ async function delData() {
                 }
             }
         });
+    
     });
 }
+
+getData()
 
 delData();
 
