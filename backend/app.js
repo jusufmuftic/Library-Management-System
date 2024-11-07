@@ -21,18 +21,6 @@ app.use(express.static('public'));
 app.use(express.urlencoded())
 app.use(cors())
 
-// app.use((req, res, next) => {
-//   console.log('new request made:');
-//   console.log('host: ', req.hostname);
-//   console.log('path: ', req.path);
-//   console.log('method: ', req.method);
-//   next();
-// });
-
-// app.get('/', (req, res) => {
-//   res.redirect('/books')
-// });
-
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
 });
@@ -41,10 +29,6 @@ app.get('/books', async (req, res) => {
   const knjige = await Book.find();
   res.json(knjige)
 })
-
-
-async function tarik(){
-}
 
 app.delete('/books/:id', (req, res) => {
   const id = req.params.id;
