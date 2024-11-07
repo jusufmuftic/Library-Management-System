@@ -19,10 +19,6 @@ async function getData() {
         title.innerHTML = knjiga.title
         author.innerHTML = knjiga.author
 
-        // const delBtn = document.createElement('button')
-        // delBtn.classList.add('delBtn')
-        // delBtn.innerHTML = 'DELETE'
-
     }
 }
 
