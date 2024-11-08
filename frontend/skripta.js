@@ -80,12 +80,15 @@ async function getData() {
         //     console.log(title)
         // })   
 
-        function edit(element){
-            console.log(element)
-        }
+        
         
     })
 }
 
 getData()
 
+function edit(element){
+    const title = document.querySelector('.title_input').value
+    const author = document.querySelector('.author_input').value
+    console.log(title, author)
+}
