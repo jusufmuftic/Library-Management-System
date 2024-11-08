@@ -1,31 +1,4 @@
-
 async function getData() {
- const res = await fetch('http://localhost:3000/books')
- const knjige = await res.json();    
- console.log(knjige)
-
-    for(let i = 0; i < knjige.length; i++){
-        const knjiga = knjige[i]
-
-        const container = document.createElement('div')
-        const leftCont = document.createElement('div')
-        const rightCont = document.createElement('div')
-        container.classList.add('book')
-
-        const title = document.createElement('h3')
-        const author = document.createElement('p')
-        
-
-        title.innerHTML = knjiga.title
-        author.innerHTML = knjiga.author
-
-    }
-}
-
-getData()
-
-
-async function delData() {
     const res = await fetch('http://localhost:3000/books');
     const knjige = await res.json(); 
 
@@ -72,10 +45,10 @@ async function delData() {
          })
 
          editBtn.addEventListener('click', () => {
-             popup.style.display = 'grid'
-             body.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'
-             title_insert.value = `${knjiga.title}`
-             author_insert.value = `${knjiga.author}`
+            popup.style.display = 'grid'
+            body.style.backgroundColor = 'rgba(0, 0, 0, 0.3)'
+            title_insert.value = `${knjiga.title}`
+            author_insert.value = `${knjiga.author}`
          })
 
         delBtn.addEventListener('click', async () => {
@@ -99,9 +72,20 @@ async function delData() {
                 }
             }
         });
-    
+
+        const saveBtn = document.querySelector('.save_popup')
+
+        // saveBtn.addEventListener('click', () => {
+        //     const title = document.querySelector('.title_input').value
+        //     console.log(title)
+        // })   
+
+        function edit(element){
+            console.log(element)
+        }
+        
     })
 }
 
+getData()
 
-delData();
