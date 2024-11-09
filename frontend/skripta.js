@@ -72,23 +72,26 @@ async function getData() {
                 }
             }
         });
-
-        const saveBtn = document.querySelector('.save_popup')
-
-        // saveBtn.addEventListener('click', () => {
-        //     const title = document.querySelector('.title_input').value
-        //     console.log(title)
-        // })   
-
-        
-        
     })
 }
 
 getData()
 
-function edit(element){
+async function edit(e){
     const title = document.querySelector('.title_input').value
     const author = document.querySelector('.author_input').value
     console.log(title, author)
+
+    const res = await fetch('http://localhost:3000/books');
+    const knjige = await res.json(); 
+
+    
+
+    try{
+
+        
+
+    } catch (err){
+        console.log(err)
+    }
 }
