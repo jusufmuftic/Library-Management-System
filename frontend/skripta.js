@@ -78,20 +78,34 @@ async function getData() {
 getData()
 
 async function edit(e){
+    const button = document.querySelector('.save_popup')
     const title = document.querySelector('.title_input').value
     const author = document.querySelector('.author_input').value
     console.log(title, author)
 
-    const res = await fetch('http://localhost:3000/books');
-    const knjige = await res.json(); 
-
+    const res = await fetch(`http://localhost:3000/books/`)
+    const knjige = await res.json()
+    
+        const editData = async () => {
+            const editRes = await fetch(`http://localhost:3000/books/${knjige.title}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+    
+            console.log(editRes)
+            if (editRes.ok) {
+                console.log('Book edited');
+            } else {
+                console.log('Failed to edit book');
+            }
+        }
+        
+        button.addEventListener('click', editData)
+    }
     
 
-    try{
-        
-        
-
-    } catch (err){
-        console.log(err)
-    }
-}
+    
+    
+      
