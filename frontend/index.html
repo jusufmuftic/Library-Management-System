@@ -7,18 +7,20 @@
     <title>Library</title>
 </head>
 <body>
-  <div id="pop-up">
-    <a id="x" href="#"><img src="./img/x.png"></a>
-    <div class="title_popup">
-      <p>Title: </p>
-      <input class="title_input" type="text">
+  <form>
+    <div id="pop-up">
+      <a id="x" href="#"><img src="./img/x.png"></a>
+      <div class="title_popup">
+        <p>Title: </p>
+        <input class="title_input" type="text">
+      </div>
+      <div class="author_popup">
+        <p>Author:</p>
+        <input class="author_input" type="text">
+      </div>
+      <button onclick="edit(this)" class="save_popup">SAVE</button>
     </div>
-    <div class="author_popup">
-      <p>Author:</p>
-      <input class="author_input" type="text">
-    </div>
-    <button onclick="edit(this)" class="save_popup">SAVE</button>
-  </div>
+  </form>
     <nav>
         <div class="site-title">
           <a href="/"><h1>Library</h1></a>
