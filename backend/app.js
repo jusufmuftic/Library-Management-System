@@ -20,6 +20,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded())
 app.use(cors())
+app.use(express.json());
 
 app.get('/about', (req, res) => {
   res.render('about', { title: 'About' });
@@ -55,6 +56,23 @@ app.post('/books', (req, res) => {
   .catch((err) => {
     console.log(err)
   })
+})
+
+app.post("/book/:title",async (req, res) => {
+  console.log(req.body)
+  console.log("poziv dobio")
+  console.log(req.params)
+
+  // naci u bazi knjigu
+  const knjiga = await Book.findOne({title: req.params["title"]})
+  console.log(knjiga.author)
+
+  // updateat autora
+  knjiga.author = req.body.author
+  await knjiga.save(); 
+
+  // vratit response ok
+  res.json({ok: true})
 })
 
 app.get('/books/create', (req, res) => {
